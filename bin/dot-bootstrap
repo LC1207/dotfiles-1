@@ -1,2 +1,2 @@
 echo "Setting up local dev environment..."
-ansible-playbook -i ~/dotfiles/hosts ~/dotfiles/local_env.yml --ask-sudo-pass
+ansible-playbook -i ~/w/dotfiles-ansible/hosts ~/w/dotfiles-ansible/local_env.yml --ask-sudo-pass

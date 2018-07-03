@@ -2,7 +2,6 @@
   hosts: local
   gather_facts: yes
 
-
 - name: Set up local development environment
   hosts: local
   roles:
@@ -10,17 +9,17 @@
     - {role: package_manager, tags: ['bootstrap']}
     - {role: zsh, tags: ['bootstrap']}
     - vim
-    - python
-    - node
-    - ruby
-    - hub
-    - zsh-autoenv
+    # - python
+    # - node
+    # - ruby
+    # - hub
+    # - zsh-autoenv
     - rg
     - exa
-    - bat
+    # - bat
     - tmux
-    - git-flow
+    # - git-flow
     - fzf
-    - kubernetes
-    - jrnl
+    # - kubernetes
+    # - jrnl
     - {role: macos, when: ansible_os_family == "Darwin"}

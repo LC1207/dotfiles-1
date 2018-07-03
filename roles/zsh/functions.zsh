@@ -78,3 +78,23 @@ function sst() {
 function countfiles() {
   find "$1" -type f | wc -l
 }
+
+# This shows status of when in vi mode vs. insert mode
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_custom_status) $EPS1"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+# All of this is needed to enable vi mode and still show status
+# ======================== START ============================
+# Load separate vi mode config
+accept-line() { prev_mode=$KEYMAP; zle .accept-line }
+zle-line-init() { zle -K ${prev_mode:-viins} }
+zle -N accept-line
+zle -N zle-line-init
+# init to vi cmd mode
+# zle-line-init() { zle -K vicmd }
+# ======================== END ============================

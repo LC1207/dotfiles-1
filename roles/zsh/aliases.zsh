@@ -13,3 +13,4 @@ alias vi="vim"
 alias v="vim"
 # resize images
 alias resize="mogrify -resize"
+alias lsh='ls -hal'

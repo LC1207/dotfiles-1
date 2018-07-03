@@ -5,7 +5,7 @@
 #  Local home directory
 dotfiles_user_home: "{{ '~' | expanduser }}"
 # Where your dotfiles live. Probably don't need to change this.
-dotfiles_home: "{{dotfiles_user_home}}/dotfiles"
+dotfiles_home: "{{dotfiles_user_home}}/w/dotfiles-ansible"
 
 # Name used in commit messages
 full_name: Jason Kim
@@ -18,7 +18,7 @@ git_email: jkimttv@gmail.com
 
 # GPG Key ID used to sign git commits
 # See https://github.com/pstadler/keybase-gpg-github setup instructions
-git_signing_key: 631262B829DDB506
+# git_signing_key: 631262B829DDB506
 
 # Vim
 
@@ -59,7 +59,7 @@ mac_cask_packages:
   # - flux
   - appcleaner
   # - daisydisk
-  - disk-inventory-x 
+  - disk-inventory-x
   # Vagrant/Virtualbox
   - vagrant
   - virtualbox
