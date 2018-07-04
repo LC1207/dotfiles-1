@@ -9,17 +9,16 @@
     - {role: package_manager, tags: ['bootstrap']}
     - {role: zsh, tags: ['bootstrap']}
     - vim
-    # - python
+    - python
     # - node
     # - ruby
     # - hub
-    # - zsh-autoenv
     - rg
     - exa
     # - bat
     - tmux
     # - git-flow
     - fzf
-    # - kubernetes
+    - kubernetes
     # - jrnl
     - {role: macos, when: ansible_os_family == "Darwin"}

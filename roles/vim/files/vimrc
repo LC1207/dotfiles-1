@@ -25,7 +25,7 @@ set noerrorbells visualbell t_vb=
 if &term =~ '256color' | set t_ut= | endif
 " NOTE: colorscheme will be set by night-and-day. This will only "
 " be in effect if night-and-day is disabled "
-set background=dark | colorscheme hybrid-sl
+set background=dark
 
 " Show trailing whitespace "
 set list listchars=tab:▸\ ,trail:▫
