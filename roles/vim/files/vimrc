@@ -8,7 +8,6 @@ set tabstop=2 shiftwidth=2 expandtab
 """ BASE CUSTOMIZATIONS """
 " NOTE: Many base customizations come from vim-sensible and vim-opinion "
 set encoding=utf-8
-set relativenumber
 set autoread " reload files when changed on disk, i.e. via `git checkout` "
 set clipboard^=unnamedplus,unnamed " Make "yanks" work with system clipboard "
 
@@ -25,7 +24,7 @@ set noerrorbells visualbell t_vb=
 if &term =~ '256color' | set t_ut= | endif
 " NOTE: colorscheme will be set by night-and-day. This will only "
 " be in effect if night-and-day is disabled "
-set background=dark | colorscheme hybrid-sl
+set background=dark
 
 " Show trailing whitespace "
 set list listchars=tab:▸\ ,trail:▫
