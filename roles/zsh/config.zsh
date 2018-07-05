@@ -3,7 +3,7 @@ DISABLE_CORRECTION="true"
 unsetopt correct
 unsetopt correct_all
 
-LESS="-+S -N"; export LESS
+LESS="-+S -N -iRMX"; export LESS
 
 # why would you type 'cd dir' if you could just type 'dir'?
 setopt AUTO_CD
