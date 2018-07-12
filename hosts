@@ -3,3 +3,7 @@ localhost
 
 [local:vars]
 ansible_connection=local
+
+[servers]
+w520a-bh
+w520a-ca

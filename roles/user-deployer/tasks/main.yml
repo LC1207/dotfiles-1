@@ -1,0 +1,42 @@
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
+  tags:
+    - thestart
+
+- name: debug test
+  debug:
+    msg: "PW is {{ deployer_pw | password_hash('sha512') }}"
+  tags:
+    - thestart
+
+- name: Make sure we have a 'deployer' user
+  user:
+    name: deployer
+    groups: wheel
+    append: yes
+    state: present
+    password: "{{ deployer_pw | password_hash('sha512') }}"
+    update_password: always
+    shell: /bin/bash
+  tags:
+    - thestart
+
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: Set up authorized keys for the deployer user
+  authorized_key: user=deployer key="{{item}}"
+  with_file:
+    - "{{ lookup('env','HOME') + '/.ssh/id_deployer_rsa.pub' }}"
+
+- name: Set up authorized keys for the jkim user
+  authorized_key: user=jkim key="{{item}}"
+  with_file:
+    - "{{ lookup('env','HOME') + '/.ssh/id_rsa_ttv.pub' }}"
