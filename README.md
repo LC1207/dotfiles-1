@@ -1,5 +1,5 @@
-dotfiles
-========
+dotfiles-ans
+============
 
 [sloria's dotfiles](https://github.com/sloria/dotfiles-old), rewritten as Ansible roles. Fully supports macOS. Red Hat and Debian support is good but not as complete.
 
