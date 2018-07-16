@@ -1,0 +1,25 @@
+- name: Collecting Facts
+  hosts: testserver
+  become: yes
+  gather_facts: yes
+
+- name: Set up local development environment
+  hosts: testserver
+  roles:
+    # - git
+    - {role: package_manager, tags: ['bootstrap']}
+    # - {role: zsh, tags: ['bootstrap']}
+    # - vim
+    # - python
+    # - node
+    # - ruby
+    # - hub
+    # - rg
+    # - exa
+    # - bat
+    # - tmux
+    # - git-flow
+    # - fzf
+    # - kubernetes
+    # - jrnl
+    # - {role: macos, when: ansible_os_family == "Darwin"}

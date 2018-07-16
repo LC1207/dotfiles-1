@@ -1,0 +1,11 @@
+- name: Collecting Facts
+  hosts: testserver
+  gather_facts: yes
+
+- name: Create and Configure Deployer
+  hosts: testserver
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - user-deployer
