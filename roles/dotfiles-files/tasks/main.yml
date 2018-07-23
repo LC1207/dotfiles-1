@@ -1,0 +1,25 @@
+- name: Check tilde path
+  debug:
+    msg: "{{ ansible_env.HOME }}"
+
+- name: Check for or create dotfiles directory
+  file:
+    path: "{{ ansible_env.HOME }}/w/dotfiles-ansible"
+    state: directory
+    mode: 0755
+
+- name: Clone dotfiles git repo
+  git:
+    repo: git@github.com:LC1207/dotfiles-ansible.git
+    version: master
+    dest: "{{ ansible_env.HOME }}/w/dotfiles-ansible"
+    accept_hostkey: yes
+
+- stat:
+    path: "{{ ansible_env.HOME }}/w/dotfiles-ansibles"
+  register: df
+  failed_when: df.stat.exists == False
+
+- fail:
+    msg: "Dotfiles directory does not exist"
+  when: df.stat.exists == False

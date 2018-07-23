@@ -1,0 +1,13 @@
+- name: Collecting Facts
+  hosts: testserver
+  become_user: deployer
+  become_method: sudo
+  gather_facts: yes
+
+- name: Set up remote development environment
+  hosts: testserver
+  remote_user: deployer
+  become_user: deployer
+  roles:
+#    - {role: zsh, tags: ['bootstrap']}
+    - dotfiles-files

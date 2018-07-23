@@ -5,7 +5,7 @@ localhost
 ansible_connection=local
 
 [testserver]
-w520a-bh ansible_ssh_user=deployer
+w520a-bh 
 
 [servers]
 w520a-bh
