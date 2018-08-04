@@ -4,7 +4,7 @@
 
 - name: Check for or create dotfiles directory
   file:
-    path: "{{ ansible_env.HOME }}/w/dotfiles-ansible"
+    path: "{{ ansible_env.HOME }}/w/dotfiles-ans"
     state: directory
     mode: 0755
 
@@ -12,11 +12,11 @@
   git:
     repo: git@github.com:LC1207/dotfiles-ansible.git
     version: master
-    dest: "{{ ansible_env.HOME }}/w/dotfiles-ansible"
+    dest: "{{ ansible_env.HOME }}/w/dotfiles-ans"
     accept_hostkey: yes
 
 - stat:
-    path: "{{ ansible_env.HOME }}/w/dotfiles-ansibles"
+    path: "{{ ansible_env.HOME }}/w/dotfiles-ans"
   register: df
   failed_when: df.stat.exists == False
 
